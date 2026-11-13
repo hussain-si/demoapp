@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Dashboard · Harihara Family Register</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try { var t = localStorage.getItem('vfr.theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+</head>
+<body data-page="dashboard">
+  <header class="app-header" id="app-header"></header>
+  <div id="app-banner"></div>
+  <div class="page-loader" id="page-loader"><span class="spinner" aria-label="Loading"></span></div>
+
+  <main class="page" id="main" hidden>
+    <div class="page-head">
+      <div>
+        <h1>Dashboard</h1>
+        <p id="dash-scope"></p>
+      </div>
+      <div class="filter-row">
+        <label for="area-filter">Area</label>
+        <select id="area-filter"></select>
+      </div>
+    </div>
+    <p class="area-link" id="area-link"></p>
+
+    <section class="stats-grid" id="stats" aria-label="Key numbers"></section>
+
+    <section class="charts-grid">
+      <article class="card chart-card col-8">
+        <header class="card-head">
+          <div><h2>Population by age</h2><p>Members in each age group, male and female</p></div>
+          <div class="legend">
+            <span class="legend-item"><span class="swatch" style="background:var(--chart-male)"></span>Male</span>
+            <span class="legend-item"><span class="swatch" style="background:var(--chart-female)"></span>Female</span>
+          </div>
+        </header>
+        <div class="chart-box" style="height:260px"><canvas id="chart-age" role="img" aria-label="Members by age group and gender"></canvas></div>
+        <div class="chart-table" id="table-age" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-age"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-4">
+        <header class="card-head">
+          <div><h2>Gender</h2><p>Share of all members</p></div>
+        </header>
+        <div class="donut">
+          <div class="donut-box"><canvas id="chart-gender" role="img" aria-label="Members by gender"></canvas></div>
+          <ul class="donut-legend" id="legend-gender"></ul>
+        </div>
+        <div class="chart-table" id="table-gender" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-gender"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-4">
+        <header class="card-head">
+          <div><h2>Family size</h2><p>Families by number of members</p></div>
+        </header>
+        <div class="chart-box"><canvas id="chart-size" role="img" aria-label="Number of families by family size"></canvas></div>
+        <div class="chart-table" id="table-size" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-size"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-4">
+        <header class="card-head">
+          <div><h2>Blood groups</h2><p>Useful when someone needs a donor</p></div>
+        </header>
+        <div class="chart-box"><canvas id="chart-blood" role="img" aria-label="Members by blood group"></canvas></div>
+        <div class="chart-table" id="table-blood" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-blood"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-4">
+        <header class="card-head">
+          <div><h2>Marital status</h2><p>Adults aged 18 and older</p></div>
+        </header>
+        <div class="donut">
+          <div class="donut-box"><canvas id="chart-marital" role="img" aria-label="Adults by marital status"></canvas></div>
+          <ul class="donut-legend" id="legend-marital"></ul>
+        </div>
+        <div class="chart-table" id="table-marital" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-marital"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-6">
+        <header class="card-head">
+          <div><h2>Education</h2><p>Highest level, members aged 6 and older</p></div>
+        </header>
+        <div class="chart-box"><canvas id="chart-education" role="img" aria-label="Members by education level"></canvas></div>
+        <div class="chart-table" id="table-education" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-education"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-6">
+        <header class="card-head">
+          <div><h2>Occupation</h2><p>Work of adults aged 18 and older</p></div>
+        </header>
+        <div class="chart-box"><canvas id="chart-occupation" role="img" aria-label="Adults by occupation"></canvas></div>
+        <div class="chart-table" id="table-occupation" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-occupation"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-6">
+        <header class="card-head">
+          <div><h2>Families by area</h2><p>Every area of the village</p></div>
+        </header>
+        <div class="chart-box"><canvas id="chart-area" role="img" aria-label="Families in each area"></canvas></div>
+        <div class="chart-table" id="table-area" hidden></div>
+        <footer class="chart-foot"><p class="chart-note" id="note-area"></p><button type="button" class="link-btn" data-toggle-table>Show table</button></footer>
+      </article>
+
+      <article class="card chart-card col-6">
+        <header class="card-head">
+          <div><h2>Recently added</h2><p>Newest families first</p></div>
+          <a class="link-btn" href="families.html">All families</a>
+        </header>
+        <div id="recent-body"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+</body>
+</html>

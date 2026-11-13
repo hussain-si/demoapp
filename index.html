@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Sign in · Harihara Family Register</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try { var t = localStorage.getItem('vfr.theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+</head>
+<body data-page="login" class="login-body">
+  <button type="button" class="icon-btn theme-toggle login-theme" data-action="theme-toggle"></button>
+  <main class="login-wrap" id="main">
+    <section class="login-card">
+      <div class="login-brand">
+        <span class="brand-mark" id="brand-icon"></span>
+        <h1 data-app-name>Harihara Family Register</h1>
+        <p data-village-name>Harihara, Davangere</p>
+      </div>
+
+      <p class="notice notice-warning" id="file-warning" hidden>
+        This page was opened as a file. Sign-in needs a small web server: see README → “Run it locally”.
+      </p>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <button type="button" class="icon-btn" id="toggle-password" aria-label="Show password"></button>
+          </div>
+        </div>
+        <label class="check">
+          <input type="checkbox" name="remember">
+          <span>Keep me signed in on this device</span>
+        </label>
+        <p class="form-error" id="login-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+
+      <div class="demo-logins" id="demo-logins" hidden>
+        <p class="demo-title">Demo logins <span>tap one to sign in</span></p>
+        <div class="demo-list"></div>
+      </div>
+    </section>
+    <p class="login-foot" id="login-foot"></p>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

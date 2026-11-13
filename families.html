@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Families · Harihara Family Register</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try { var t = localStorage.getItem('vfr.theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+</head>
+<body data-page="families">
+  <header class="app-header" id="app-header"></header>
+  <div id="app-banner"></div>
+  <div class="page-loader" id="page-loader"><span class="spinner" aria-label="Loading"></span></div>
+
+  <main class="page" id="main" hidden>
+    <div class="page-head">
+      <div>
+        <h1>Families</h1>
+        <p id="families-summary"></p>
+      </div>
+      <div class="page-actions" id="families-actions"></div>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-field">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="family-search" placeholder="Search name, family code, phone or Aadhaar last 4" aria-label="Search families" autocomplete="off">
+        <button type="button" class="icon-btn" id="search-clear" aria-label="Clear search" hidden>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <select id="family-area" aria-label="Filter by area"></select>
+      <select id="family-sort" aria-label="Sort families"></select>
+    </div>
+
+    <div id="families-list"></div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/families.js"></script>
+</body>
+</html>
